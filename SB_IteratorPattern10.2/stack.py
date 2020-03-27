@@ -1,7 +1,7 @@
 from stackiter import *
 
 
-class Stack(object):
+class Stack:
     """
     class variables
     """
@@ -10,6 +10,9 @@ class Stack(object):
 
     def __init__(self):
         self.__sp = - 1
+
+    def __del__(self):
+        print("Stack deleted")
 
     def push(self, item):
         self.__sp += 1

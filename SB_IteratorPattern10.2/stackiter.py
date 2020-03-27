@@ -11,14 +11,22 @@ class StackIter(object):
     """
     class constructor
     """
+
     def __init__(self):
         pass
+
+    def __del__(self):
+        print("StackIter deleted")
 
     """
     class methods
     """
+
     def __init__(self, s):
         self.__stk = self.s
+
+    def __del__(self):
+        print("StackIter deleted")
 
     def first(self):
         self.__index = 0
@@ -31,3 +39,23 @@ class StackIter(object):
 
 
 createIterator = StackIter()
+
+"""
+    overloaded '==' operator
+"""
+
+
+def __eq__(self, l, r):
+    itl = StackIter();
+    itr = StackIter();
+    itl = l.createIterator()
+    itr = r.createIterator()
+
+    eval = (itl.first(), itl.first(), itl.isDone(), itl.next(), itr.next())
+    for x in eval:
+        if itl.currentItem() != itr.currentItem():
+            break
+    ans = (itl.isDone() & itr.isDone())
+    del itl
+    del itr
+    return ans
