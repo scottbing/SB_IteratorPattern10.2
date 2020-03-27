@@ -1,4 +1,7 @@
-class Stack():
+from stackiter import *
+
+
+class Stack(object):
     """
     class variables
     """
@@ -24,3 +27,5 @@ class Stack():
 
     def isEmpty(self):
         return self.items == []
+
+    createIterator = StackIter()
