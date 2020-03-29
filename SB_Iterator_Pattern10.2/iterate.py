@@ -2,33 +2,26 @@ class Stack(object):
     """
     class variables
     """
-    __items = []
-    __sp = None
+    items = []
+    sp = None
 
     def __init__(self):
-        self.__sp = - 1
+      self.items = []
 
-    def __del__(self):
-        print("Stack deleted")
+    def isEmpty(self):
+        return self.items == []
 
     def push(self, item):
-        self.__sp += 1
-        self.__items[self.__sp] = item
+        self.items.append(item)
 
     def pop(self):
-        self.__sp -= 1
-        return self.__items[self.__sp]
+        return self.items.pop()
 
     def peek(self):
         return self.items[len(self.items) - 1]
 
     def size(self):
         return len(self.items)
-
-    def isEmpty(self):
-        return self.items == []
-
-    createIterator = StackIter.StackIter()
 
 
 class StackIter(object):
@@ -68,9 +61,6 @@ class StackIter(object):
         self.__index = 0
 
 
-createIterator = StackIter()
-
-
 def createIterator():
     return object.__new__(StackIter)
 
@@ -99,8 +89,10 @@ def __eq__(self, l, r):
 if __name__ == '__main__':
 
     s1 = Stack()
+    #for i in range(1, 5, 1):
     for i in range(5):
         s1.push(i)
+
     """
         s2-s5 same as s1
     """
